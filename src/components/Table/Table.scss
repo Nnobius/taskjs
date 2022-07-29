@@ -1,0 +1,41 @@
+table {
+  border: 1px solid rgba(227, 230, 236, 1);
+  border-collapse: collapse;
+  width: 100%;
+  line-height: 137.69%;
+
+  thead {
+    font-weight: 600;
+    font-size: 14px;
+    color: white;
+    cursor: pointer;
+    user-select: none;
+
+    tr {
+      background-color: rgba(71, 73, 85, 1);
+    }
+
+    td {
+      .headText {
+        justify-content: center;
+        span {
+          margin-right: 20px;
+        }
+      }
+    }
+  }
+
+  tbody {
+    font-weight: 500;
+    font-size: 13px;
+    color: rgba(71, 73, 85, 1);
+
+    tr, td {
+      border: 1px solid rgba(227, 230, 236, 1);
+    }
+
+    td {
+      padding: 11px;
+    }
+  }
+}

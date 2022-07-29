@@ -1,26 +1,46 @@
+import Search from "./components/Search/Search";
+import Table from "./components/Table/Table";
+import BottomMenu from "./components/BottomMenu/BottomMenu";
+import './App.scss'
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {useLoading} from "./UX/loading";
+import Loader from "./components/Loader/Loader";
+import {useSorter} from "./UX/sorter";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const {
+        loading,
+        searchText,
+        setSearchText,
+        head,
+        selectedBlock,
+        onNextPage,
+        onPrevPage,
+        setSelectPage,
+        pages,
+        selectPage,
+        imageSrc,
+        rows,
+        setRows
+    } = useLoading()
+
+    const {
+        sortData
+    } = useSorter(rows, setRows)
+
+    return (
+        <div className="App">
+            {loading && <Loader/>}
+            {
+                <div className="content">
+                    <Search searchText={searchText} setSearchText={setSearchText}/>
+                    <Table imageSrc={imageSrc} head={head} rows={selectedBlock} sortData={sortData}/>
+                    <BottomMenu onNextPage={onNextPage} onPrevPage={onPrevPage} setSelectPage={setSelectPage}
+                                pages={pages} selectPage={selectPage}/>
+                </div>
+            }
+        </div>
+    );
 }
 
 export default App;

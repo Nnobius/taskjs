@@ -1,0 +1,83 @@
+.clear {
+  * {
+    box-sizing: border-box;
+    outline: none;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    list-style-type: none;
+  }
+}
+
+.dFlex {
+  display: flex;
+}
+
+.jBetween {
+  justify-content: space-between;
+}
+
+.jCenter {
+  justify-content: center;
+}
+
+.tCenter {
+  text-align: center;
+}
+
+.tUpp {
+  text-transform: uppercase;
+}
+
+.tLow {
+  text-transform: lowercase;
+}
+
+.itemsCenter {
+  align-items: center;
+}
+
+.fCol {
+  flex-direction: column;
+}
+
+.border {
+  border: 1px solid black;
+}
+
+$sides: (
+        'top': 't',
+        'right': 'r',
+        'bottom': 'b',
+        'left': 'l',
+);
+
+@each $side, $letter in $sides {
+  @for $px from 1 through 50 {
+    .m#{$letter}-#{$px} {
+      margin-#{$side}: #{$px}px !important;
+    }
+
+    .p#{$letter}-#{$px} {
+      padding-#{$side}: #{$px}px !important;
+    }
+
+    .m-#{$px} {
+      margin: #{$px}px !important;
+    }
+
+    .p-#{$px} {
+      padding: #{$px}px !important;
+    }
+  }
+}
